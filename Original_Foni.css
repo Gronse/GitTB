@@ -1,0 +1,271 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+
+:root{
+	--clrINOF_navBG: #AA22FE;
+	--clrINOF_navBG2: #7D11BF;
+	--clrINOF_texte_navigation: #FFFFDD;
+
+}
+
+body{
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+/*--------------------- FONT ---------------------*/
+
+@font-face {
+    font-family: TerminalFont;
+    src: url(./SuperLegendBoy-4w8Y.ttf);
+}
+
+/*========================================================================================*
+*		NAVIGATION GLOBAL DU SITE INOF
+*========================================================================================*/
+
+.cadreMenuNav{
+	position: sticky;
+	top: 0;
+	z-index: 999;
+}
+
+.logoNavFoni{
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 10px 10px 10px 10px;
+	width: 50px;
+	height: 50px;
+}
+
+#donutNav{
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1001;
+	width: 0px;
+	height: 0px;
+	color: white;
+	border: 0px var(--clrINOF_navBG2) solid;
+	border-radius: 0 8px 300px 8px;
+	transition: width .5s, height .5s, border .5s;
+	background-color: var(--clrINOF_navBG);
+}
+
+.logoNavFoni:hover+#donutNav, 
+.logoNavFoni:focus+#donutNav, 
+#donutNav:hover{
+	width: 300px;
+	height: 300px;
+	border-right: 15px var(--clrINOF_navBG2) solid;
+	border-bottom: 15px var(--clrINOF_navBG2) solid;
+}
+
+.selectNavCache{
+	overflow: hidden;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1000;
+	width: auto;
+	height: 20px;
+	color: white;
+	background-color: var(--clrINOF_navBG);
+	border: 0px var(--clrINOF_navBG2) solid;
+	border-radius: 5px;
+	transition: width .5s, padding .5s, top .5s, left .5s;
+}
+
+#donutNav:hover+.selectNavCache{
+	top: 10px;
+	left: 300px;
+}
+
+.selectNav{
+	overflow: hidden;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1000;
+	padding: 3px 5px 3px 20px;
+	width: auto;
+	height: 20px;
+	color: white;
+	background-color: var(--clrINOF_navBG);
+	border: 2px var(--clrINOF_navBG2) solid;
+	border-radius: 5px;
+	transition: width .5s, padding .5s, top .5s, left .5s;
+}
+
+#donutNav:hover+.selectNav{
+	top: 10px;
+	left: 300px;
+}
+
+/*-------------------- Icones donut navigation --------------------*/
+
+.extCercle{ --rayon : 270px; --maxN : 7;}
+.intCercle{ --rayon : 170px; --maxN : 3;}
+
+.extCercle, 
+.intCercle{
+	opacity: 0;
+	position:absolute;
+	top: -15px;
+	left: -15px;
+	color: white;
+	font-size: 30px;
+	transition: color .2s, font-size .2s, transform .5s, opacity .4s;
+}
+
+.extCercle:hover, 
+.intCercle:hover{
+	color: DeepPink;
+	font-size: 34px;
+	transform:  rotate(calc(var(--n) * 82deg / var(--maxN) + 4deg)) translate(268px);
+}
+
+@keyframes delay-pointer-events{
+    0%, 90% { pointer-events: none;}
+    100% { pointer-events: none;}
+}
+
+.logoNavFoni:hover+#donutNav>.extCercle, 
+#donutNav:hover>.extCercle, 
+.logoNavFoni:hover+#donutNav>.intCercle, 
+#donutNav:hover>.intCercle{
+	animation: delay-pointer-events 500ms linear;
+	opacity: 1;
+	transform: rotate(calc(var(--n) * 82deg / var(--maxN) + 4deg)) translate(var(--rayon));
+}
+
+/*========================================================================================*
+*		jSon Maker
+*========================================================================================*/
+
+.formJSon{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.formJSon input{
+	padding: 10px 20px 10px 30px;
+	border-radius: 100vw;
+}
+
+.formJSon textarea{
+	padding: 10px 10px 10px 10px;
+	border-radius: 10px;
+}
+
+.formJSon i, .formJSon label{
+	font-size: 40px;
+}
+
+/*========================================================================================*
+*		Specification globale
+*========================================================================================*/
+
+.spanTab{
+	padding: 0 0 0 4em;
+}
+
+/*========================================================================================*
+*		Terminaux (cmd)
+*========================================================================================*/
+.cmdTexte{ /* commande hors d'un terminal*/
+	padding: 2px 10px 2px 10px;
+	font-family: TerminalFont;
+    background-color: black;
+	font-size: .9em;
+    color: white;
+	border-radius: 5px;
+}
+
+.cmd{
+	margin: 0 0 0 0;
+	width: fit-content;
+	max-width: 1200px;
+}
+
+.cmdTitre{
+	padding: 4px 10px 4px 10px;
+	background-color: #BBFFEE;
+	color : #000000;
+	font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.cmdCode{
+	padding: 20px 80px 20px 40px;
+	font-family: TerminalFont;
+	color: #FFFFFF;
+	font-size: 1em;
+	background-color: #020202FF;
+	border: 5px ridge #BBFFEE;
+}
+
+.cmdLieu{
+	color : #FFCC11;
+	padding: 0 10px 0 0;
+}
+
+.cmdRetour{
+	padding: 0 0 0 40px;
+	color: #DDDDDD;
+	font-size: .80em;
+}
+
+.cmdOption{
+	color: #7788EE;
+}
+
+.cmdOption::before{ content: "[·";}
+.cmdOption::after{ content: "·]";}
+
+.cmdSurligne{
+	background-color: #AA55EE
+}
+
+.cmdSousligne{
+	border-bottom: 2px #AA55EE solid;
+}
+
+
+/*========================================================================================*
+*		Work In Progress | WIP
+*========================================================================================*/
+
+div.notaBene{
+	width: 200px;
+	height: 200px;
+	padding: calc(1.25em + 12px) 0 0 calc(1.25em + 12px);
+	margin: 0 calc(1.25em + 12px) calc(1.25em + 12px) 0;
+	position: relative;
+	font-family: algoFont;
+	background-color: #BBBBBB;
+	border: solid 0 transparent;
+	border-width: 0 1.25em 1.25em 0;
+}
+
+div.notaBene::before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: inherit;
+	border-width: 1.25em 0 0 1.25em;
+	width: calc(100% + 1.25em);
+	height: calc(100% + 1.25em);
+	box-shadow: inset 0 0 0 6px #888888;
+	pointer-events: none;
+}
+
+span.notaBene{
+	font-size: 1.25em;
+	text-align: center;
+	display: block;
+	border-bottom: 2px solid black;
+}

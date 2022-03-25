@@ -1,0 +1,123 @@
+body{
+    background-image: linear-gradient(to right, #302476 50%, #4a4692 100%);
+    color: white;
+}
+
+header{
+    margin: 0 auto 0 auto;
+    padding : 40px 40px 40px 40px;
+    width: fit-content;
+}
+
+main{
+    position: relative;
+    margin: 0 auto 40px auto;
+    padding : 40px 0 40px 40px;
+    width: 60%;
+    min-width: 500px;
+}
+
+main::before{
+    content:"";
+    position: absolute;
+    top : 0 ;
+    left : calc(-20px / 2);
+    z-index: -2;
+    background-color: orange;
+    width : 20px;
+    height: 100%;
+    border-radius: 20px;
+}
+
+h1{
+    margin: 0 auto 0 auto;
+    padding: 20px 20px 20px 20px;
+    width: fit-content;
+}
+
+h2{ --hPoint : 50px; --texteTaille : 35px; text-align: center;}
+h3{ --hPoint : 40px; --texteTaille : 30px; width: fit-content;}
+section.branchGit, section.mergeGit{ --hPoint : 30px; }
+
+h2,h3{
+    position : relative;
+    margin : 22px 0 22px -40px;
+    padding : 2px 40px 2px 40px;
+    background-color: darkorange;
+    font-size: var(--texteTaille);
+    border-radius: 0 0 40px 0;
+}
+
+h2::before, h3::before{
+    content:"";
+    position: absolute;
+    top : calc(-1 * (var(--hPoint) - var(--texteTaille)) / 2) ;
+    left : calc((var(--hPoint) * -1 - 5px * 2) / 2);
+    background-color: white;
+    width : var(--hPoint);
+    height: var(--hPoint);
+    border: 5px orange solid;
+    border-radius: var(--hPoint);
+}
+
+.exempleGit{
+    --clrExemple : darkorange;
+    --clrExemple2 : white;
+    margin: 0 auto 0 auto;
+    padding: 5px 10px 5px 10px;
+    color: var(--clrExemple2);
+    background-color: var(--clrExemple);
+    width: fit-content;
+    text-align: center;
+    border: 3px solid var(--clrExemple2);
+    border-radius: 5px;
+}
+
+div.exempleGitDepot{
+    --clrExemple : #AA55EE;
+    --clrExemple2 : white;
+    margin: 0 0 0 0;
+    padding: 5px 10px 5px 10px;
+    display: inline-block;
+    color: var(--clrExemple2);
+    background-color: var(--clrExemple);
+    text-align: center;
+    border: 3px solid var(--clrExemple2);
+    border-radius: 5px;
+}
+
+div.exempleGitDepot>div{
+    display: inline-block;
+    padding: 0 5px 0 5px;
+    border: 5px solid #9944EE;
+    border-radius: 5px;
+}
+
+li.exempleGitDepot{
+    background-color: #AA55EE;
+    border: 3px solid #AA55EE;
+    border-radius: 5px;
+}
+
+div.exempleGit>ul{
+    text-align: left;
+    padding: 0 30px 0 20px;
+    display: inline-block;
+    list-style-type: "\230A" ;
+}
+
+.iconeGit{
+    font-size: 20px;
+}
+
+a{
+    color: #FFCC11;
+}
+
+.texteGit{
+    margin: 20px 40px 40px 40px;
+}
+
+.cmd{ /*modif predefini*/
+    margin: 0 auto 0 auto;
+}

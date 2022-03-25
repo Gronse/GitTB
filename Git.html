@@ -1,0 +1,272 @@
+<html>
+	<head>
+        <meta charset="utf-8">
+		<title> Git et GitHub - Foni </title>
+        <link rel="stylesheet" href="./Original_Foni.css">
+        <link rel="stylesheet" href="./Git_Foni.css">
+        <style>
+            h3.branchGit{margin: 22px 0 60px -40px;}
+            h3.branchGit::after{
+                content:"";
+                position: absolute;
+                top : 27px;
+                left : calc((-15px / 2 - 5px * 2) / 2);
+                z-index: -3;
+                background-color: deeppink;
+                width : 20px;
+                height : 100px;
+                transform-origin: top center;
+                transform: rotate(-43deg);
+            }
+
+            section.mergeGit::after{
+                content:"";
+                position: absolute;
+                top : 10px;
+                left : calc((-15px / 2 - 5px * 2) / 2);
+                z-index: -3;
+                background-color: deeppink;
+                width : 20px;
+                height : 100px;
+                transform-origin: top center;
+                transform: rotate(43deg);
+            }
+
+            section.branchGit::before, section.mergeGit::before{
+                content:"";
+                position: absolute;
+                top : -10px ;
+                left : calc((var(--hPoint) * -1 - 5px * 2) / 2);
+                background-color: white;
+                width : var(--hPoint);
+                height: var(--hPoint);
+                border: 5px deeppink solid;
+                border-radius: var(--hPoint);
+            }
+
+            section.branchGit, section.mergeGit{
+                position: relative;
+                margin: 0 0 0 40px;
+                padding : 0 0 0 40px;
+            }
+
+            section.branchGit::after{
+                content:"";
+                position: absolute;
+                top : 0 ;
+                left : calc(-20px / 2);
+                z-index: -2;
+                background-color: deeppink;
+                width : 20px;
+                height: 100%;
+                border-radius: 20px;
+            }
+
+            .logo{
+                width: 30px;
+                height: 30px;
+            }
+
+
+
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>GIT ET GITHUB</h1>
+            <a href="./Repository.html">Dépot</a>
+        </header>
+
+        <main>
+            <h2>Gestion de Version</h2>
+            <div>
+                Un gestionnaire de versions (ou VCS, pour version control system) est un logiciel qui permet de conserver un historique des 
+                modifications et des versions de tous les fichiers d'un projet, ce qui comprends:
+                    <ul>
+                        <li>les modifications apportées aux fichiers</li>
+                        <li>qui a créer ces modifications</li>
+                        <li>pourquoi</li>
+                    </ul>
+                Le gestionnaire est également capable de fusionner les modifications des personnes qui travaillent simultanément sur un même 
+                fichier sans risquer de supprimer les modifications des autres. <br>
+                Contrôler les differentes versions d'un projet est aussi appelé Versionning. <br>
+            </div>
+
+            <h2>Git</h2>
+            <h3>Qu'est-ce que Git</h3>
+            <div>
+                Git est un gestionnaire de versions (ou VCS, pour version control system).Il est décentraliser, c-a-d qu'il ne repose pas sur un serveur centralisé, 
+                mais il utilise un système de connexion pair à pair (P2P).
+            </div>
+
+            <h3>Premiere Etape : installer et configurer Git</h3>
+            <div>
+                Télécharger le logiciel <a href="https://git-scm.com/download" target="_blank"><i class="bi bi-git"></i>Git</a><br>
+                <ul>
+                    <li>garder option proposer de base</li>
+                    <li>changer l'editeur de code (possible de le re-changer apres installation)</li>
+                    <li>launch GitBash</li>
+                </ul>
+
+                Il faut ensuite configurer les variables global (les variables relative à l'ordinateur) du git.
+                precision necessaire (email "")
+            </div>
+
+            <div class="cmd">
+                Configurer l'invité de commande GitBash: <br/>
+                <div class="cmdTitre"><i class="bi bi-git"></i> GitBash</div>
+                <div class="cmdCode">
+                    <span class="cmdLieu">~</span> $ git config --global user.name "<span class="cmdSousligne">Ton Nom Ici</span>" <br />
+                    <span class="cmdLieu">~</span> $ git config --global user.email <span class="cmdSousligne">toi@email.com</span> <br />
+                    <br/>
+                    <span class="cmdLieu">~</span> $ git config --list<br />
+                    <div class="cmdRetour">
+                        diff.astextplain.textconv=astextplain<br />
+                        filter.lfs.clean=git-lfs clean -- %f<br />
+                        filter.lfs.smudge=git-lfs smudge -- %f<br />
+                        filter.lfs.process=git-lfs filter-process<br />
+                        filter.lfs.required=true<br />
+                        http.sslbackend=openssl<br />
+                        http.sslcainfo=C:/Users/stagiaire/AppData/Local/Programs/Git/mingw64/ssl/certs/ca-bundle.crt<br />
+                        core.autocrlf=true<br />
+                        core.fscache=true<br />
+                        core.symlinks=false<br />
+                        pull.rebase=false<br />
+                        credential.helper=manager-core<br />
+                        credential.https://dev.azure.com.usehttppath=true<br />
+                        init.defaultbranch=master<br />
+                        core.editor="C:\Users\stagiaire\AppData\Local\Programs\Microsoft VS Code\bin\code" --wait<br />
+                        user.name= <span class="cmdSurligne">Ton Nom Ici</span><br />
+                        user.email= <span class="cmdSurligne">toi@email.com</span><br />
+                        core.repositoryformatversion=0<br />
+                        core.filemode=false<br />
+                        core.bare=false<br />
+                        core.logallrefupdates=true<br />
+                        core.symlinks=false<br />
+                        core.ignorecase=true<br />
+                    </div>
+                    <br/>
+                    <span class="cmdLieu">~</span> $ git config --global core.editor notepad++<br />
+                    <span class="cmdLieu">~</span> $ git config --global merge.tool vimdiff<br />
+                </div>
+            </div>
+
+            <h2>GitHub</h2>
+            <h3>Qu'est-ce que GitHub</h3>
+            <div>
+                GitHub est un service web d'hébergement et de gestion de développement de logiciels, utilisant le logiciel de gestion de versions Git.
+            </div>
+
+            <h3>Créer un compte GitHub</h3>
+            <div>
+                GitHub est un service en ligne qui permet d'héberger des dépots distants (distant Repository) afin de garder un historique délocalisé.
+                Vous pourrez aussi les rendre publics, et chacun pourra y ajouter ses évolutions. Ou bien les garder privés afin de contrôler qui y a accès. <br>
+                Créer un compte 
+                <a href="https://github.com/" target="_blank">GitHub<img src="./assets/svg/website/GitHub_Logo.svg" alt="Logo GH" class="logo"></a> <br/>
+                GitLab et Bitbucket sont des alternatives possibles à GitHub. <br>
+            </div>
+
+            <div class="GitFonc">
+                <img src="./assets/svg/software/Git_Logo.svg" alt="Logo Git" class="logo"> Git : Dépot Local<br/>
+                <div class="GitFonc WorkDir">
+                    Dossier de travail - Working directory:<br/>
+                    dossier du projet sur votre ordinateur
+                </div>
+                <div class="arrow">⇃ Indexation ⇂</div>
+                <div class="GitFonc Stage">Stage</div>
+                <div class="arrow">⇃ Comit ⇂</div>
+                <div class="GitFonc Repository">Dépot - Repository</div>
+            </div>
+
+            <div class="arrow">↿ Pull - Push ⇂</div>
+            <div class="GitFonc"><img src="./assets/svg/website/GitHub_Logo.svg" alt="Logo GH" class="logo"> Git Hub : Dépot distant</div>
+
+            <h2>|WIP| : Utiliser Git</h2>
+            <div>
+                note: Controle + Shift + Inser pour coller <br>
+                --help pour la documentation
+            </div>
+
+            <div class="cmd">
+                Initialiser le dépot local (local repository): <br/>
+                <div class="cmdTitre"><i class="bi bi-git"></i> GitBash</div>
+                <div class="cmdCode">
+                    $ cd <span class="cmdSousligne">quelquepart</span> <br>
+                    $ git init <br />
+                    <div class="cmdReponse">Initialized empty Git repository in <span class="cmdSurligne">quelquepart</span></div>
+                </div>
+            </div>
+
+            <div class="cmd">
+                Indexer le fichier HTML modifié grâce à la commande
+                <div class="cmdTitre"><i class="bi bi-git"></i> GitBash</div>
+                <div class="cmdCode">
+                    $ git add <span class="cmdSousligne">nawak.html</span> <span class="cmdSousligne">stylesOpif.css</span><br />
+                    $ git commit -m “Ajout des fichiers html et css de base”<br />
+                </div>
+            </div>
+
+            <div class="cmd">
+                Push
+                <div class="cmdTitre"><i class="bi bi-git"></i> GitBash</div>
+                <div class="cmdCode">
+                    $ git remote add origin https://github.com/example/ProjectTest.git<br />
+                    $ git push -u origin main<br />
+                </div>
+            </div>
+            
+            <h3 class="branchGit"> |WIP| Branche</h3>
+            <section class="branchGit">
+                <div class="cmd">
+                    Branche
+                    <div class="cmdTitre"><i class="bi bi-git"></i> GitBash</div>
+                    <div class="cmdCode">
+                        $ git branch<br />
+
+                        $ git branch -M main<br />
+                        * main : L’étoile signifie que c’est la branche sur laquelle vous vous situez, et que c’est sur celle-ci qu'actuellement vous réalisez vos modifications.<br />
+                        $ git branch cagnotte<br />
+                        $ git checkout cagnotte<br />
+                        $ git checkout main<br />
+                        <br>
+
+                        supprimer un branche <br>
+                        $ git branch -d brancheTest <br>
+                        si modif non commit sur la branche <br>
+                        $ git branch -D brancheTest <br>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mergeGit">
+                <div class="cmd">
+                    Si on veut fusionner (merge) deux branches enssemble ou va alors utiliser la commnde :
+                    <div class="cmdTitre"><i class="bi bi-git"></i> GitBash</div>
+                    <div class="cmdCode">
+                        $ git merge cagnotte<br />
+                    </div>
+                </div>
+            </section>
+
+            <div class="cmd">
+                Acces Repository distant
+                <div class="cmdTitre"><i class="bi bi-git"></i> GitBash</div>
+                <div class="cmdCode">
+                    pour cloner le depot distant <br>
+                    $ git clone https://github.com/OpenClassrooms-Student-Center/7162856-G-rez-Git-et-GitHub.git <br>
+                    <br>
+                    $ git remote add OC https://github.com/OpenClassrooms-Student-Center/7162856-G-rez-Git-et-GitHub.git <br>
+                    creation d'alias - note : vous devez vous trouvez dans un dossier git (possedant un .git) *voir git init<br>
+                    <br>
+                    pour copier les dernière modif du depot distant <br>
+                    $ git pull OC main <br>
+                </div>
+            </div>
+
+            pull request : demande de fusion (de branche sur la branche principal aka main ou master) <br>
+            code review : relecture du code
+
+                </main>
+    </body>
+</html>

@@ -1,0 +1,150 @@
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title> Git et GitHub - Foni </title>
+        <link rel="stylesheet" href="./Original_Foni.css">
+        <link rel="stylesheet" href="./Git_Foni.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>Repository</h1>
+            <a href="./Git.html">Git</a>
+        </header>    
+
+        <main>
+            <h2>Un Dépot (ou Repository)</h2>
+            <div class="texteGit">
+                Dans les systèmes de contrôle de version, un dépot est une structure de données qui stocke les 
+                métadonnées (modification, commentaire, ...) de l'ensemble des fichiers du répertoires. Selon le système de 
+                contrôle de version utilisé, cet ensemble d'informations peut etre :
+                    <ul>
+                        <li>
+                            distribué (ou décentralisé): <br>
+                            dupliqué sur le système de chaque utilisateur, comme Git ou Mercurial.
+                        </li>
+                        <li>
+                            centralisé : <br>
+                            conservé sur un serveur unique, comme  Subversion, CVS ou Perforce.
+                        </li>
+                    </ul> 
+                Certaines des métadonnées contenues dans un dépot incluent, entre autres, un historique des modifications apportées au répertoire, 
+                [un ensemble d'objets de validation et un ensemble de références aux objets de validation, appelés têtes]. <br><br>
+                
+                Pour aller plus loin: <br>
+                L'objectif principal d'un dépot est de stocker un ensemble de fichiers, ainsi que l'historique des modifications apportées à ces fichiers. 
+                Cependant, la manière exacte dont chaque système de contrôle de version gère le stockage de ces modifications diffère considérablement. 
+                Par exemple, Subversion s'appuyait dans le passé sur une instance de base de données, mais s'est depuis déplacé pour stocker ses modifications 
+                directement sur le système de fichiers. Ces différences dans les techniques de stockage ont généralement conduit à diverses utilisations du contrôle 
+                de version par différents groupes, en fonction de leurs besoins.
+            </div>
+
+            <h2>Dépot Local</h2>
+            <div>
+                Un dépot local est une instance d'un dépot stocké sur une machine d'un utilisateur (en opposition a un serveur).
+            </div>
+
+            <h3>Créer un dépot local</h3>
+            <div class="texteGit">
+                Afin de créer un dépot local vous devez d'abord créer un dossier qui servira d'ancrage au dépot. Si le dossier n'existe pas, vous pouver le créer grace a la 
+                commande <span class="cmdTexte">$ mkdir</span>. Déplacer vous dans le dossier en question via la commande <span class="cmdTexte">$ cd</span>. Enfin initialiser le 
+                dépot avec la commande <span class="cmdTexte">$ git init</span>.
+            </div>
+
+            <div class="cmd">
+                <div class="cmdTitre"><i class="iconeGit bi bi-git"></i> GitBash</div>
+                <div class="cmdCode">
+                    <span class="cmdLieu">~</span> $ mkdir monProjet <br>
+                    <span class="cmdLieu">~</span> $ cd monProjet <br>
+                    <span class="cmdLieu">~/monProjet</span> $ git init <br><br>
+                    <span class="cmdLieu">~/monProjet</span> $ ls <br>
+                    <div class="cmdRetour">
+                        <span class="cmdSousligne">.git/</span> <br>
+                        example/ <br>
+                        dossier/ <br>
+                        fichier.txt <br>
+                        page.html <br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="texteGit">
+                Grace à la commande <span class="cmdTexte">$ ls</span> on peut voir tous les fichier dans notre dossier de travail. Le dossier ".git" caché est le dépot local. Il contient 
+                l'historique de toute les versions du code, ainsi que l'image du dossier de travail lors du dernier envoye (commit).
+            </div>
+
+            <div class="exempleGit">
+                Dossier de Travail :
+                <hr>
+                <ul>
+                    <li class="exempleGitDepot">.git/</li>
+                    <li>example/</li>
+                    <li>dossier/</li>
+                    <li>fichier.txt</li>
+                    <li>page.html</li>
+                </ul>
+                <div class="exempleGitDepot">
+                    Dépot :
+                    <hr>
+                    <div>
+                        Index<br>
+                        Image du dossier de travail
+                    </div>
+                    <div>
+                        Historique<br>
+                        0 > 1
+                    </div>
+                </div>
+            </div>
+
+            <h3>Copier le dépot local dans un dépot distant</h3>
+            <div class="texteGit">
+                Pour copier le dépot local dans un dépot distant, vous devez d'abords le créer (<a href="#creationGitHub">voir étape</a>). Puis 
+                vous pouvez mettre a jour le dépot distant grace à la commande <span class="cmdTexte">$git push <span class="cmdOption">url</span> <span class="cmdOption">branche</span></span>.
+            </div>
+
+            <div class="cmd">
+                <div class="cmdTitre"><i class="iconeGit bi bi-git"></i> GitBash</div>
+                <div class="cmdCode">
+                    ( <span class="cmdLieu">~</span> $ cd monProjet )<br>
+                    <span class="cmdLieu">~/monProjet</span> $ git push https://github.com/example/ProjectTest.git main
+                </div>
+            </div>
+
+            <h2>Dépot Distant</h2>
+            <h3 id="creationGitHub">Créer un dépot distant</h3>
+            <div class="texteGit">
+                Cela dépent du service utilisé. Pour l'example, nous allons utiliser GitHub. 
+                <a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud">oo</a>
+            </div>
+
+            <h3>Cloner le dépot distant</h3>
+            <div class="texteGit">
+                Afin de pouvoir travailler sur ce projet, on va devoir cloner le dépot distant sur notre machine. Cela nous fournira un dépot local identique au dépot distant, où 
+                on pourra apporter toutes nos modifications. Pour cela on aura besoin de la commande <span class="cmdTexte">$ git clone <span class="cmdOption">url</span></span>.
+            </div>
+            
+            <div class="cmd">
+                <div class="cmdTitre"><i class="iconeGit bi bi-git"></i> GitBash</div>
+                <div class="cmdCode">
+                    <span class="cmdLieu">~/monProjet</span> $ git clone https://github.com/example/ProjectTest.git
+                </div>
+            </div>
+
+            <div class="texteGit">
+                Pour eviter d'ecrire cette URL à chaque nouveau clone ou push (<a href="#push">voir push</a>), on peut créer un alias grace a la commande 
+                <span class="cmdTexte">$ git remote add <span class="cmdOption">alias</span> <span class="cmdOption">url</span></span>. Cette alias pourra remplacer l'URL pour les 
+                manipulation a venir, mais ne pourra être utiliser que dans ce dépot. En effet, l'alias n'est définit que dans le dépot en cours.
+            </div>
+            
+            <div class="cmd">
+                <div class="cmdTitre"><i class="iconeGit bi bi-git"></i> GitBash</div>
+                <div class="cmdCode">
+                    <span class="cmdLieu">~/monProjet</span> $ git remote add ProjetTest https://github.com/example/ProjectTest.git <br>
+                    <span class="cmdLieu">~/monProjet</span> $ git clone ProjetTest
+                </div>
+            </div>
+
+        </main>
+    </body>
+</html>
